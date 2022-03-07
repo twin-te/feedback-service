@@ -24,4 +24,3 @@ jobs:
       - name: run test
         working-directory: .devcontainer
         run: docker-compose exec -T node bash -c "yarn test"
-        env:
