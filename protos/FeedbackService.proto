@@ -1,0 +1,25 @@
+syntax="proto3";
+
+service FeedbackService {
+  rpc Feedback(FeedbackRequest) returns (FeedbackResponse);
+}
+
+enum FeedbackType {
+  BUG_REPORT = 0;
+  FEATURE_REQUEST = 1;
+  CONTACT = 2;
+  OTHER = 3;
+}
+
+message FeedbackRequest {
+  string user_id = 1;
+  FeedbackType type = 2;
+  string content = 3;
+  string email = 4;
+  string user_agent = 5;
+  bytes screenshot = 6;
+}
+
+message FeedbackResponse {
+  string message = 1;
+}
