@@ -8,13 +8,13 @@ jobs:
       - name: create .dev.env file
         working-directory: .
         run: |
-          echo "${{ secrets.TRELLO_KEY }}" >> .dev.env
-          echo "${{ secrets.TRELLO_TOKEN }}" >> .dev.env
-          echo "${{ secrets.LIST_ID }}" >> .dev.env
-          echo "${{ secrets.BUG_REPORT }}" >> .dev.env
-          echo "${{ secrets.FEATURE_REQUEST }}" >> .dev.env
-          echo "${{ secrets.CONTACT }}" >> .dev.env
-          echo "${{ secrets.OTHER }}" >> .dev.env
+          echo "TRELLO_KEY=${{ secrets.TRELLO_KEY }}" >> .dev.env
+          echo "TRELLO_TOKEN=${{ secrets.TRELLO_TOKEN }}" >> .dev.env
+          echo "LIST_ID=${{ secrets.LIST_ID }}" >> .dev.env
+          echo "BUG_REPORT=${{ secrets.BUG_REPORT }}" >> .dev.env
+          echo "FEATURE_REQUEST=${{ secrets.FEATURE_REQUEST }}" >> .dev.env
+          echo "CONTACT=${{ secrets.CONTACT }}" >> .dev.env
+          echo "OTHER=${{ secrets.OTHER }}" >> .dev.env
       - name: start container
         working-directory: .devcontainer
         run: docker-compose up -d
