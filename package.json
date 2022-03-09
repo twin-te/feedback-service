@@ -7,7 +7,7 @@
     "dev": "cross-env LOG_LEVEL=trace ts-node --files src/index.ts",
     "proto": "./proto-gen.sh",
     "client": "grpcc -i -a localhost:50051 -p protos/HelloService.proto",
-    "test": "cross-env LOG_LEVEL=off jest --runInBand --coverage",
+    "test": "cross-env LOG_LEVEL=off jest --runInBand --coverage --detectOpenHandles",
     "build": "rm -rf ./dist && tsc && rm -rf ./dist/__tests__ && mv ./dist/src/* ./dist",
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write src/"
@@ -35,8 +35,11 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.2.2",
     "@grpc/proto-loader": "^0.5.6",
+    "axios": "^0.26.0",
     "clone": "^2.1.2",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "form-data": "^4.0.0",
     "log4js": "^6.3.0",
     "protobufjs": "github:iFwu/protobuf.js"
   }

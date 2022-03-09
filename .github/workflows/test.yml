@@ -5,6 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: create .dev.env file
+        working-directory: .
+        run: |
+          echo "TRELLO_KEY=${{ secrets.TRELLO_KEY }}" >> .dev.env
+          echo "TRELLO_TOKEN=${{ secrets.TRELLO_TOKEN }}" >> .dev.env
+          echo "LIST_ID=${{ secrets.LIST_ID }}" >> .dev.env
+          echo "BUG_REPORT=${{ secrets.BUG_REPORT }}" >> .dev.env
+          echo "FEATURE_REQUEST=${{ secrets.FEATURE_REQUEST }}" >> .dev.env
+          echo "CONTACT=${{ secrets.CONTACT }}" >> .dev.env
+          echo "OTHER=${{ secrets.OTHER }}" >> .dev.env
       - name: start container
         working-directory: .devcontainer
         run: docker-compose up -d
